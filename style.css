@@ -1,0 +1,405 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: white;
+    line-height: 1.6;
+}
+
+a { color: #D4AF37; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    background-color: #121212;
+    border-bottom: 1px solid #D4AF37;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+nav ul li { margin: 0 15px; }
+nav ul li a {
+    color: #D4AF37;
+    font-weight: bold;
+    padding: 10px;
+    transition: 0.3s;
+}
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #D4AF37;
+    color: #121212;
+    border-radius: 5px;
+}
+
+/* Hero Header */
+header {
+    position: relative;
+    height: 400px;
+    background-image: url('central park.png'); /* Fixed backslash if needed -> 'central park.png' */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header h1 {
+    font-size: 3.5em;
+    color: #D4AF37;
+    text-shadow: 0 0 10px black;
+}
+
+/* Intro Box */
+.intro-box {
+    background-color: rgba(30, 30, 30, 0.9);
+    border: 1px solid #D4AF37;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 900px;
+}
+
+/* Buttons - General */
+.button {
+    background-color: #D4AF37;
+    color: #121212;
+    border: none;
+    padding: 12px 24px;
+    margin: 8px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.button:hover { transform: scale(1.05); background-color: #b8962e; }
+.button.secondary {
+    background-color: #1e1e1e;
+    color: #D4AF37;
+}
+
+/* NEW: Mood Filter Section - Premium Pill Buttons */
+#mood-filter {
+    text-align: center;
+    margin: 50px 0;
+}
+
+#mood-filter h2 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: white;
+}
+
+#mood-filter .buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#mood-filter button {
+    padding: 16px 28px;
+    border: none;
+    border-radius: 50px; /* Strong pill shape */
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Inactive buttons */
+#mood-filter button.secondary {
+    background-color: #1e1e1e;
+    color: #D4AF37;
+}
+
+/* Active button (All Restaurants) */
+#mood-filter button:not(.secondary) {
+    background-color: #D4AF37;
+    color: #121212;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 8px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Hover for inactive */
+#mood-filter button.secondary:hover {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #4CAF50; /* Bright green for OPEN (common in Zomato/Swiggy/Uber Eats) */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px; /* Full pill shape */
+    font-weight: bold;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.status-badge::before {
+    content: "🕒"; /* Clock icon */
+    font-size: 1.3em;
+}
+
+/* CLOSED State - Bright Red */
+.status-badge.closed {
+    background-color: #f44336; /* Bright red for CLOSED */
+}
+
+/* Hover Effect - Slight lift and stronger shadow */
+.status-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Ensure the card allows absolute positioning */
+.restaurant-card {
+    position: relative;
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures equal height in grid */
+}
+
+.restaurant-card:hover { box-shadow: 0 0 20px #D4AF37; }
+
+.restaurant-card img {
+    width: 100%;
+    height: 180px; /* Smaller fixed height for compact cards */
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.restaurant-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.3em;
+    color: white;
+}
+
+.restaurant-description {
+    color: #cccccc;
+    font-size: 0.9em;
+    margin: 8px 0 12px 0;
+    line-height: 1.4;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limits description to 3 lines max */
+    -webkit-box-orient: vertical;
+}
+
+.vibe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.vibe-tag {
+    background-color: #2a2a2a;
+    color: #D4AF37;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.85em;
+    border: 1px solid #D4AF37;
+}
+
+.walk-distance {
+    color: #aaaaaa;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.walk-distance::before {
+    content: "📍";
+}
+
+/* Rating */
+.rating {
+    margin: 8px 0;
+    color: #D4AF37;
+    font-size: 0.95em;
+}
+
+.rating .stars { font-size: 1.1em; margin-right: 5px; }
+.rating .stars .empty { color: #444; }
+
+/* Grid - Ensure compact cards */
+#restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+
+/* Tabs */
+.tab-buttons {
+    text-align: center;
+    margin: 30px 0;
+}
+.tab-buttons button {
+    background: #1e1e1e;
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    padding: 12px 30px;
+    margin: 0 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.tab-buttons button.active {
+    background: #D4AF37;
+    color: #121212;
+}
+#table-view { display: none; }
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #D4AF37;
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #D4AF37;
+    color: #121212;
+}
+
+/* Form */
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+}
+label { display: block; color: #D4AF37; margin: 15px 0 5px; }
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #121212;
+    border: 1px solid #D4AF37;
+    color: white;
+    border-radius: 8px;
+}
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 20px;
+    color: white;
+}
+button[type="submit"] {
+    background: #D4AF37;
+    color: #121212;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Team */
+#team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+.team-card {
+    background: #1e1e1e;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+}
+.team-placeholder {
+    background: #D4AF37;
+    color: #121212;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    margin: 0 auto 15px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+.modal-content {
+    background: #1e1e1e;
+    padding: 30px;
+    border: 1px solid #D4AF37;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+}
+.close {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    color: #D4AF37;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #D4AF37;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul { flex-direction: column; }
+    header { height: 300px; }
+    header h1 { font-size: 2.5em; }
+}
