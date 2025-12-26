@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CentralPark VibeGuide - Suggest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Restaurant Directory</a></li>
+            <li><a href="suggest.html" class="active">Suggest a Spot</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Suggest a Spot</h1>
+        <p>Know a great place in Central Park? Tell us!</p>
+
+        <form>
+            <label>Your Name *</label>
+            <input type="text" required placeholder="e.g., Ahmed Khan">
+
+            <label>Your Email *</label>
+            <input type="email" required placeholder="e.g., ahmed@example.com">
+
+            <label>Restaurant Name *</label>
+            <input type="text" required placeholder="e.g., The Golden Fork">
+
+            <label>Location in Central Park *</label>
+            <input type="text" required placeholder="e.g., Near Fountain">
+
+            <label>Select Vibes (choose all that apply)</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="vibe" value="Family Dinner"> Family Dinner</label>
+                <label><input type="checkbox" name="vibe" value="Quick Snack"> Quick Snack</label>
+                <label><input type="checkbox" name="vibe" value="Late Night"> Late Night</label>
+                <label><input type="checkbox" name="vibe" value="Coffee & Chill"> Coffee & Chill</label>
+                <label><input type="checkbox" name="vibe" value="Best View"> Best View</label>
+            </div>
+
+            <label>Why do you recommend it?</label>
+            <textarea rows="5" placeholder="Share your experience..."></textarea>
+
+            <button type="submit">Submit Suggestion</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Developed by: [Your Name 1], [Your Name 2], [Your Name 3].</p>
+    </footer>
+</body>
+</html>
