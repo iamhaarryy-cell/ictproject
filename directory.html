@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CentralPark VibeGuide - Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html" class="active">Restaurant Directory</a></li>
+            <li><a href="suggest.html">Suggest a Spot</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Restaurant Directory</h1>
+        <p>Browse all spots in DHA Central Park with live status and ratings.</p>
+
+        <div class="tab-buttons">
+            <button id="card-tab" class="active">Card View</button>
+            <button id="table-tab">Table View</button>
+        </div>
+
+        <section id="card-view">
+            <section id="restaurant-grid"></section>
+        </section>
+
+        <section id="table-view">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Restaurant Name</th>
+                        <th>Cuisine</th>
+                        <th>Avg Price (Rs)</th>
+                        <th>Opening Hours</th>
+                        <th>WiFi</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="restaurant-table"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer>
+        <p>Developed by: [Your Name 1], [Your Name 2], [Your Name 3].</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
