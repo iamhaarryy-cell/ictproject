@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CentralPark VibeGuide - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="directory.html">Restaurant Directory</a></li>
+            <li><a href="suggest.html">Suggest a Spot</a></li>
+            <li><a href="about.html">Meet the Team</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>CentralPark VibeGuide</h1>
+    </header>
+
+    <div class="container">
+        <div class="intro-box">
+            <h2>What is this?</h2>
+            <p>Welcome to CentralPark VibeGuide – your digital concierge for DHA Islamabad's Central Park food strip. We use real-time logic to show which restaurants are currently open (12 PM – 2 AM) and help you filter by mood, making dining decisions fast and fun.</p>
+        </div>
+
+        <section id="mood-filter">
+    <h2>Filter by Vibe</h2>
+    <div class="buttons-container">
+        <button class="button" data-mood="all">All Restaurants</button>
+        <button class="button secondary" data-mood="Family Dinner">Family Dinner</button>
+        <button class="button secondary" data-mood="Quick Snack">Quick Snack</button>
+        <button class="button secondary" data-mood="Late Night">Late Night</button>
+        <button class="button secondary" data-mood="Coffee & Chill">Coffee & Chill</button>
+        <button class="button secondary" data-mood="Best View">Best View</button>
+    </div>
+</section>
+
+        <section id="restaurant-grid"></section>
+
+        <section style="text-align:center; margin:40px 0;">
+            <button id="spin-button" class="button">Spin the Plate</button>
+        </section>
+    </div>
+
+    <!-- Randomizer Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="random-restaurant"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed by: [Your Name 1], [Your Name 2], [Your Name 3].</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
